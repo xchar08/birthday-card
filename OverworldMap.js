@@ -181,7 +181,7 @@ window.OverworldMaps = {
       [utils.asGridCoord(3,3)] : true,
       [utils.asGridCoord(4,3)] : true,
       [utils.asGridCoord(5,3)] : true,
-      [utils.asGridCoord(6,3)] : true,
+      [utils.asGridCoord(6,4)] : true,
       [utils.asGridCoord(8,3)] : true,
       [utils.asGridCoord(9,3)] : true,
       [utils.asGridCoord(10,3)] : true,
@@ -231,6 +231,22 @@ window.OverworldMaps = {
             ]
           }
         ]
+      }),
+
+      oak: new Person({
+        x: utils.withGrid(1),
+        y: utils.withGrid(8),
+        src: "/images/characters/people/oak.png",
+        behaviorLoop: [
+          { type: "stand",  direction: "up", time: 800 },
+        ],
+        talking: [
+          {
+            events: [
+              { type: "textMessage", text: "Right on!", faceHero:"oak" },
+            ]
+          }
+        ]
       })
     },
     walls: {
@@ -262,7 +278,6 @@ window.OverworldMaps = {
       [utils.asGridCoord(13,8)] : true,
       [utils.asGridCoord(13,9)] : true,
 
-      [utils.asGridCoord(1,1)] : true,
       [utils.asGridCoord(1,2)] : true,
       [utils.asGridCoord(1,3)] : true,
       [utils.asGridCoord(1,4)] : true,
@@ -284,6 +299,106 @@ window.OverworldMaps = {
       [utils.asGridCoord(11,4)] : true,
       [utils.asGridCoord(12,4)] : true,
 
+    },
+    cutsceneSpaces: {
+      [utils.asGridCoord(2,5)]: [
+        {
+          events: [
+            { who: "oak", type: "walk",  direction: "right" },
+            { who: "oak", type: "walk",  direction: "up" },
+            { who: "oak", type: "walk",  direction: "up" },
+            { type: "textMessage", text:"Professor Oak: Oh, you've come to choose a Pokémon!"},
+            { type: "textMessage", text:"Professor Oak: You have three choices. Pick wisely!"},
+            { type: "textMessage", text:"Professor Oak: Not one of these though! Go talk to Alex!"},
+            { who: "oak", type: "walk",  direction: "down" },  
+            { who: "oak", type: "walk",  direction: "down" },
+            { who: "oak", type: "walk",  direction: "left" },
+            { who: "hero", type: "walk",  direction: "right" },
+            { who: "hero", type: "walk",  direction: "right" },
+            { who: "hero", type: "walk",  direction: "right" },
+            { who: "hero", type: "walk",  direction: "down" },
+            { who: "hero", type: "walk",  direction: "down" },
+            { who: "hero", type: "walk",  direction: "down" },
+            { who: "hero", type: "walk",  direction: "right" },
+            { who: "hero", type: "walk",  direction: "right" },
+            { who: "hero", type: "walk",  direction: "right" }
+
+          ]
+        }
+      ],
+      [utils.asGridCoord(2,6)]: [
+        {
+          events: [
+            { who: "hero", type: "walk",  direction: "right" },
+            { who: "hero", type: "walk",  direction: "up" },
+            { who: "hero", type: "stand",  direction: "left", time: 500 }
+          ]
+        }
+      ],
+      [utils.asGridCoord(2,7)]: [
+        {
+          events: [
+            { who: "hero", type: "walk",  direction: "right" },
+            { who: "hero", type: "walk",  direction: "up" },
+            { who: "hero", type: "walk",  direction: "up" },
+            { who: "hero", type: "stand",  direction: "left", time: 500 }
+          ]
+        }
+      ],
+      [utils.asGridCoord(5,10)]: [
+        {
+          events: [
+            { who: "npcB", type: "walk",  direction: "left" },
+            { who: "npcB", type: "walk",  direction: "left" },
+            { who: "npcB", type: "walk",  direction: "left" },
+            { who: "npcB", type: "walk",  direction: "left" },
+            { who: "npcB", type: "walk",  direction: "left" },
+            { who: "npcB", type: "walk",  direction: "down" },
+            { type: "textMessage", text:"Alex: You can't be in there!"},
+            { who: "npcB", type: "walk",  direction: "up" },
+            { who: "hero", type: "walk",  direction: "up" },
+            { who: "npcB", type: "walk",  direction: "right" },
+            { who: "npcB", type: "walk",  direction: "right" },
+            { who: "npcB", type: "walk",  direction: "right" },
+            { who: "npcB", type: "walk",  direction: "right" },
+            { who: "npcB", type: "walk",  direction: "right" },
+            { who: "npcB", type: "stand",  direction: "down", time: 500 }
+          ]
+        }
+      ],
+      [utils.asGridCoord(9,8)]: [
+        {
+          events: [
+            { who: "npcB", type: "stand",  direction: "left", time: 500 },
+            { type: "textMessage", text:"Alex: Hiya! You've come for a Pokémon?"},
+            { type: "textMessage", text:"Alex: Follow me right this way!"},
+            { who: "hero", type: "walk",  direction: "left" },
+            { who: "hero", type: "walk",  direction: "left" },
+            { who: "hero", type: "stand",  direction: "right", time: 5 },
+            { who: "npcB", type: "walk",  direction: "left" },
+            { who: "npcB", type: "walk",  direction: "left" },
+            { who: "npcB", type: "walk",  direction: "up" },
+            { who: "hero", type: "stand",  direction: "up", time: 5 },
+            { who: "npcB", type: "walk",  direction: "up" },
+            { who: "npcB", type: "walk",  direction: "left" },
+            { who: "npcB", type: "stand",  direction: "down", time: 1000 },
+            { type: "textMessage", text:"Alex: Alright, time to get your Pokémon!"},
+            { who: "npcB", type: "stand",  direction: "down", time: 1000 },
+            // Switch npcB sprite to eyebrow raise
+            { type: "textMessage", text:"Alex: . . ."},
+            { type: "textMessage", text:"Alex: This isn't a starter Pokémon ..."},
+            { who: "npcB", type: "stand",  direction: "down", time: 1000 },
+            //Spawn in a goodra
+            //{ type: "spawnGoodra" },
+            { who: "npcB", type: "stand",  direction: "down", time: 1000 },
+            { type: "textMessage", text:"You: Aweeee a goodra!"},
+            { who: "npcB", type: "stand",  direction: "down", time: 1000 },
+            // Switch to other website page (goodra catch)
+            //{ type: "executeFunction", functionName: "spawnGoodra" }
+    
+          ]
+        }
+      ]
     }
     
   },

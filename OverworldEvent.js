@@ -71,6 +71,15 @@ class OverworldEvent {
     })
   }
 
+  spawnGoodra(resolve) {
+    const goodra = new Person({
+      x: utils.withGrid(6),
+      y: utils.withGrid(7),
+      src: "/images/characters/people/goodra.png"
+    })
+  }
+
+
   init() {
     return new Promise(resolve => {
       this[this.event.type](resolve)      
