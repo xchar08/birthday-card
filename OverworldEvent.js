@@ -79,6 +79,13 @@ class OverworldEvent {
     })
   }
 
+  transitionPage(){
+    const sceneTransition = new SceneTransition();
+    sceneTransition.init(document.querySelector(".game-container"), () => {
+      window.location.href = "./basketball/index.html";
+    })
+  }
+
 
   init() {
     return new Promise(resolve => {

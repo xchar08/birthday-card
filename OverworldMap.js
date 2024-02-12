@@ -395,6 +395,7 @@ window.OverworldMaps = {
             { who: "npcB", type: "stand",  direction: "down", time: 1000 },
             // Switch to other website page (goodra catch)
             //{ type: "executeFunction", functionName: "spawnGoodra" }
+            { type: "transitionPage" }
     
           ]
         }
