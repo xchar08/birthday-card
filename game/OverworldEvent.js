@@ -75,14 +75,14 @@ class OverworldEvent {
     const goodra = new Person({
       x: utils.withGrid(6),
       y: utils.withGrid(7),
-      src: "/images/characters/people/goodra.png"
+      src: "./images/characters/people/goodra.png"
     })
   }
 
   transitionPage(){
     const sceneTransition = new SceneTransition();
     sceneTransition.init(document.querySelector(".game-container"), () => {
-      window.location.href = "./basketball/index.html";
+      window.location.href = "../basketball/index.html";
     })
   }
 

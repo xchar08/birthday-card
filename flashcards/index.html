@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href='https://fonts.googleapis.com/css?family=Alfa Slab One' rel='stylesheet'>
+<link rel='stylesheet' href='index.css'>
+<link rel="icon" href="..\src\images\goodra_sticker.png" type="image/">
+<title>File Flashcards</title>
+<style>
+  .flashcard {
+    display: none;
+    border: 1px solid black;
+    padding: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+  /* Center the GIF container */
+  #gif-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 300px; /* Adjust height as needed */
+  }
+
+  /* Optional: Add styles for the random GIF */
+  #random-gif {
+      max-width: 100%;
+      max-height: 100%;
+  }
+</style>
+</head>
+<body>
+<input type="file" id="fileInput">
+<div id="flashcardContainer"></div>
+<input type="text" id="textInput" placeholder="Enter text">
+<button id="submitButton">Submit</button>
+<div id="result"></div>
+<div id="gif-container">
+  <img id="random-gif" src="" alt="Random Gif">
+</div>
+
+<script>
+  document.getElementById('fileInput').addEventListener('change', function(e) {
+    const file = e.target.files[0];
+    const reader = new FileReader();
+
+    reader.onload = function(e) {
+      const content = e.target.result;
+      displayFlashcards(content);
+    };
+
+    reader.readAsText(file);
+  });
+
+  function displayFlashcards(content) {
+    const flashcards = content.split('\n').filter(line => line.trim() !== '');
+
+    const flashcardContainer = document.getElementById('flashcardContainer');
+    flashcardContainer.innerHTML = '';
+
+    flashcards.forEach((flashcardText, index) => {
+      const flashcard = document.createElement('div');
+      flashcard.classList.add('flashcard');
+      flashcard.textContent = flashcardText;
+      flashcard.addEventListener('click', () => showNextFlashcard(index, flashcards));
+      flashcardContainer.appendChild(flashcard);
+    });
+
+    // Show the first flashcard
+    document.querySelector('.flashcard').style.display = 'block';
+  }
+
+  function showNextFlashcard(currentIndex, flashcards) {
+    const nextIndex = (currentIndex + 1) % flashcards.length;
+    const flashcardContainer = document.getElementById('flashcardContainer');
+    const flashcardsList = flashcardContainer.getElementsByClassName('flashcard');
+
+    // Hide the current flashcard
+    flashcardsList[currentIndex].style.display = 'none';
+
+    // Show the next flashcard
+    flashcardsList[nextIndex].style.display = 'block';
+  }
+
+  function displayRandomGif(gifPath) {
+    // Get a random number to append to the GIF URL to prevent caching
+    const randomNum = Math.floor(Math.random() * 5) + 1;
+    const gifUrl = `${gifPath}${randomNum}.gif`;
+
+    // Set the source of the img element to display the random GIF
+    const imgElement = document.getElementById('random-gif');
+    imgElement.src = gifUrl;
+    console.log(gifUrl)
+  }
+
+  document.getElementById('submitButton').addEventListener('click', function() {
+    const flashcardContainer = document.getElementById('flashcardContainer');
+    const flashcardsList = flashcardContainer.getElementsByClassName('flashcard');
+    const currentIndex = Array.from(flashcardsList).findIndex(flashcard => flashcard.style.display === 'block');
+
+    const currentFlashcardText = flashcardsList[currentIndex].textContent;
+    const userInput = document.getElementById('textInput').value;
+
+    if (currentFlashcardText.trim() === userInput.trim()) {
+
+        displayRandomGif('./kibahappy/');
+        //document.getElementById('result').textContent = 'Yay!';
+    } else {
+        displayRandomGif('./kibasad/');
+        //document.getElementById('result').textContent = 'Try again.';
+    }
+
+    // Clear input box and result message
+    document.getElementById('textInput').value = '';
+    setTimeout(() => {
+      document.getElementById('result').textContent = '';
+    }, 2000); // Clear result message after 2 seconds
+  });
+
+
+
+</script>
+</body>
+</html>

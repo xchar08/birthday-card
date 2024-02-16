@@ -2,9 +2,11 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8" />
+	<link rel="icon" href="..\src\images\goodra_sticker.png" type="image/">
     <title>Basketball Game</title>
 	<script type="text/javascript" src="js/phaser.min.js"></script>
     <style type="text/css">
+	
         body {
             margin: 0;
         }
@@ -48,7 +50,7 @@ function preload() {
 		game.load.image('lose3', 'assets/images/lose3.png');
 		game.load.image('lose4', 'assets/images/lose4.png');
 
-		game.load.audio('score', 'assets/audio/score.wav');
+		game.load.audio('score', 'assets/audio/pokeball_catch.wav');
 		game.load.audio('backboard', 'assets/audio/backboard.wav');
 		game.load.audio('whoosh', 'assets/audio/whoosh.wav');
 		game.load.audio('fail', 'assets/audio/fail.wav');
@@ -106,7 +108,7 @@ function create() {
 
 	game.stage.backgroundColor = "#ffffff";
 
-	// high_score_text = game.add.text(450, 25, 'High Score\n' + high_score, { font: 'Arial', fontSize: '32px', fill: '#000', align: 'center' });
+	high_score_text = game.add.text(450, 25, 'High Score\n' + high_score, { font: 'Arial', fontSize: '32px', fill: '#000', align: 'center' });
 	current_score_text = game.add.text(187, 312, '', { font: 'Arial', fontSize: '40px', fill: '#000', align: 'center' }); // 300, 500
 	current_best_text = game.add.text(143, 281, '', { font: 'Arial', fontSize: '20px', fill: '#000', align: 'center' });// 230, 450
 	current_best_score_text = game.add.text(187, 312, '', { font: 'Arial', fontSize: '40px', fill: '#00e6e6', align: 'center' }); // 300, 500
@@ -138,7 +140,7 @@ function create() {
 
 
 	var instructions = document.createElement("span");
-	instructions.innerHTML = "Instructions: Quickly drag the ball to shoot the ball into the hoop!";
+	instructions.innerHTML = "Drag and throw the ball to catch goodra!";
 	document.body.appendChild(instructions);
 }
 
@@ -157,28 +159,39 @@ function update() {
 			emojiName = "win" + rand;
 			current_score += 1;
 			current_score_text.text = current_score;
-			score_sound.play();
-			window.location.href = "../index.html";
+			const randomNumber = Math.random();
+
+			// Check if the random number is less than or equal to 1/6
+			if (randomNumber <= 1/6) {
+				score_sound.play();
+				window.location.href = "../flashcards/index.html";
+			} else {
+				fail.play();
+			}
+			ball.kill();
+			createBall();
+
 		} else {
 			emojiName = "lose" + rand;
 			fail.play();
 			if (current_score > high_score) {
 				high_score = current_score;
-			// 	high_score_text.text = 'High Score\n' + high_score;
+			 	high_score_text.text = 'High Score\n' + high_score;
 			}
 			current_score = 0;
-			current_score_text.text = '';
-			current_best_text.text = 'Current Best';
-			current_best_score_text.text = high_score;
+			//current_score_text.text = '';
+			//current_best_text.text = 'Current Best';
+			//current_best_score_text.text = high_score;
 		}
-		emoji = game.add.sprite(180, 100, emojiName);
-		emoji.scale.setTo(0.25, 0.25);
-		moveInTween = game.add.tween(emoji).from( { y: 150 }, 500, Phaser.Easing.Elastic.Out, true);
-		fadeInTween = game.add.tween(emoji).from( { alpha: 0 }, 200, Phaser.Easing.Linear.None, true, 0, 0, false);
-		moveInTween.onComplete.add(tweenOut, this);
+		//emoji = game.add.sprite(180, 100, emojiName);
+		//emoji.scale.setTo(0.25, 0.25);
+		//moveInTween = game.add.tween(emoji).from( { y: 150 }, 500, Phaser.Easing.Elastic.Out, true);
+		//fadeInTween = game.add.tween(emoji).from( { alpha: 0 }, 200, Phaser.Easing.Linear.None, true, 0, 0, false);
+		//moveInTween.onComplete.add(tweenOut, this);
 	}
 
 	if (ball && ball.body.y > 1200) {
+		//1200
 		game.physics.p2.gravity.y = 0;
 		ball.kill();
 		createBall();
@@ -257,8 +270,8 @@ function launch(x_traj) {
 	if (ball.launched === false) {
 		ball.body.setCircle(36);
 		ball.body.setCollisionGroup(collisionGroup);
-		current_best_text.text = '';
-		current_best_score_text.text = '';
+		//current_best_text.text = '';
+		//current_best_score_text.text = '';
 		ball.launched = true;
 		game.physics.p2.gravity.y = 3000;
 		game.add.tween(ball.scale).to({x : 0.6, y : 0.6}, 500, Phaser.Easing.Linear.None, true, 0, 0, false);

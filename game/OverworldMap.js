@@ -99,8 +99,8 @@ class OverworldMap {
 
 window.OverworldMaps = {
   DemoRoom: {
-    lowerSrc: "/images/maps/DemoLower.png",
-    upperSrc: "/images/maps/DemoUpper.png",
+    lowerSrc: "./images/maps/DemoLower.png",
+    upperSrc: "./images/maps/DemoUpper.png",
     gameObjects: {
       hero: new Person({
         isPlayerControlled: true,
@@ -110,7 +110,7 @@ window.OverworldMaps = {
       npcA: new Person({
         x: utils.withGrid(7),
         y: utils.withGrid(9),
-        src: "/images/characters/people/npc1.png",
+        src: "./images/characters/people/npc1.png",
         behaviorLoop: [
           { type: "stand",  direction: "left", time: 800 },
           { type: "stand",  direction: "up", time: 800 },
@@ -130,7 +130,7 @@ window.OverworldMaps = {
       npcB: new Person({
         x: utils.withGrid(8),
         y: utils.withGrid(5),
-        src: "/images/characters/people/npc2.png",
+        src: "./images/characters/people/npc2.png",
         // behaviorLoop: [
         //   { type: "walk",  direction: "left" },
         //   { type: "stand",  direction: "up", time: 800 },
@@ -211,8 +211,8 @@ window.OverworldMaps = {
     
   },
   Kitchen: {
-    lowerSrc: "/images/maps/KitchenLower.png",
-    upperSrc: "/images/maps/KitchenUpper.png",
+    lowerSrc: "./images/maps/KitchenLower.png",
+    upperSrc: "./images/maps/KitchenUpper.png",
     gameObjects: {
       hero: new Person({
         isPlayerControlled: true,
@@ -223,7 +223,7 @@ window.OverworldMaps = {
       npcB: new Person({
         x: utils.withGrid(10),
         y: utils.withGrid(8),
-        src: "/images/characters/people/npc3.png",
+        src: "./images/characters/people/npc3.png",
         talking: [
           {
             events: [
@@ -236,7 +236,7 @@ window.OverworldMaps = {
       oak: new Person({
         x: utils.withGrid(1),
         y: utils.withGrid(8),
-        src: "/images/characters/people/oak.png",
+        src: "./images/characters/people/oak.png",
         behaviorLoop: [
           { type: "stand",  direction: "up", time: 800 },
         ],
