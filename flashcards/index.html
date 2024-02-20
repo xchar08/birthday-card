@@ -3,84 +3,78 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href='https://fonts.googleapis.com/css?family=Alfa Slab One' rel='stylesheet'>
-<link rel='stylesheet' href='index.css'>
-<link rel="icon" href="..\src\images\goodra_sticker.png" type="image/">
-<title>File Flashcards</title>
+<title>Flashcards Game</title>
 <style>
   .flashcard {
-    display: none;
-    border: 1px solid black;
+    border: 1px solid #ccc;
     padding: 10px;
-    margin-bottom: 10px;
+    margin: 10px;
     cursor: pointer;
+    width: 150px;
+    text-align: center;
+  }
+  .flashcard:hover {
+    background-color: #f0f0f0;
+  }
+  .flashcard{
+    background-color: #fff;
+  }
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
   }
   /* Center the GIF container */
   #gif-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 300px; /* Adjust height as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px; /* Adjust height as needed */
   }
 
   /* Optional: Add styles for the random GIF */
   #random-gif {
-      max-width: 100%;
-      max-height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  body{
+    background-color: #BFD7EB;
   }
 </style>
 </head>
 <body>
-<input type="file" id="fileInput">
-<div id="flashcardContainer"></div>
-<input type="text" id="textInput" placeholder="Enter text">
-<button id="submitButton">Submit</button>
-<div id="result"></div>
+<div id="flashcardContainer" class="container"></div>
+<div id="feedback"></div>
 <div id="gif-container">
   <img id="random-gif" src="" alt="Random Gif">
 </div>
+<button id="nextButton" style="display: none;">Next</button>
+<input type="file" id="fileInput" accept=".txt" onchange="handleFile()">
 
 <script>
-  document.getElementById('fileInput').addEventListener('change', function(e) {
-    const file = e.target.files[0];
-    const reader = new FileReader();
+  let flashcards = [];
+  let currentFlashcardIndex = 0;
 
-    reader.onload = function(e) {
-      const content = e.target.result;
-      displayFlashcards(content);
-    };
-
-    reader.readAsText(file);
-  });
-
-  function displayFlashcards(content) {
-    const flashcards = content.split('\n').filter(line => line.trim() !== '');
-
-    const flashcardContainer = document.getElementById('flashcardContainer');
-    flashcardContainer.innerHTML = '';
-
-    flashcards.forEach((flashcardText, index) => {
-      const flashcard = document.createElement('div');
-      flashcard.classList.add('flashcard');
-      flashcard.textContent = flashcardText;
-      flashcard.addEventListener('click', () => showNextFlashcard(index, flashcards));
-      flashcardContainer.appendChild(flashcard);
-    });
-
-    // Show the first flashcard
-    document.querySelector('.flashcard').style.display = 'block';
+  // Function to shuffle array
+  function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
   }
 
-  function showNextFlashcard(currentIndex, flashcards) {
-    const nextIndex = (currentIndex + 1) % flashcards.length;
-    const flashcardContainer = document.getElementById('flashcardContainer');
-    const flashcardsList = flashcardContainer.getElementsByClassName('flashcard');
-
-    // Hide the current flashcard
-    flashcardsList[currentIndex].style.display = 'none';
-
-    // Show the next flashcard
-    flashcardsList[nextIndex].style.display = 'block';
+  // Function to generate random wrong answers
+  function generateWrongAnswers() {
+    const wrongAnswers = [];
+    while (wrongAnswers.length < 3) {
+      const randomNumber = Math.floor(Math.random() * 100) + 1; // Adjust range as needed
+      if (!wrongAnswers.includes(randomNumber)) {
+        wrongAnswers.push(randomNumber);
+      }
+    }
+    return wrongAnswers;
   }
 
   function displayRandomGif(gifPath) {
@@ -94,32 +88,76 @@
     console.log(gifUrl)
   }
 
-  document.getElementById('submitButton').addEventListener('click', function() {
-    const flashcardContainer = document.getElementById('flashcardContainer');
-    const flashcardsList = flashcardContainer.getElementsByClassName('flashcard');
-    const currentIndex = Array.from(flashcardsList).findIndex(flashcard => flashcard.style.display === 'block');
+  // Function to display flashcard
+  function displayFlashcard(index) {
+    const flashcardContainer = document.getElementById("flashcardContainer");
+    const feedback = document.getElementById("feedback");
+    const nextButton = document.getElementById("nextButton");
 
-    const currentFlashcardText = flashcardsList[currentIndex].textContent;
-    const userInput = document.getElementById('textInput').value;
+    // Clear previous content
+    flashcardContainer.innerHTML = "";
+    feedback.innerHTML = "";
+    nextButton.style.display = "none";
 
-    if (currentFlashcardText.trim() === userInput.trim()) {
-
-        displayRandomGif('./kibahappy/');
-        //document.getElementById('result').textContent = 'Yay!';
-    } else {
-        displayRandomGif('./kibasad/');
-        //document.getElementById('result').textContent = 'Try again.';
+    if (index >= flashcards.length) {
+      feedback.textContent = "End of flashcards.";
+      return;
     }
 
-    // Clear input box and result message
-    document.getElementById('textInput').value = '';
-    setTimeout(() => {
-      document.getElementById('result').textContent = '';
-    }, 2000); // Clear result message after 2 seconds
-  });
+    const currentFlashcard = flashcards[index];
+    const question = currentFlashcard[0];
+    const correctAnswer = currentFlashcard[1];
+    //const falseAnswers = shuffleArray(currentFlashcard.slice(2));
+    const wrongAnswers = generateWrongAnswers();
 
+    // Display question
+    const questionDiv = document.createElement("div");
+    questionDiv.textContent = question;
+    flashcardContainer.appendChild(questionDiv);
 
+    // Display answers
+    //const allAnswers = [correctAnswer, ...falseAnswers];
+    const allAnswers = [correctAnswer, ...wrongAnswers];
+    shuffleArray(allAnswers).forEach(answer => {
+      const div = document.createElement("div");
+      div.className = "flashcard";
+      div.textContent = answer;
+      div.onclick = function() {
+        if (answer === correctAnswer) {
+          feedback.textContent = "Yay!";
+          displayRandomGif('./kibahappy/');
+        } else {
+          displayRandomGif('./kibasad/');
+          feedback.textContent = "Aww";
+        }
+        nextButton.style.display = "block";
+      };
+      flashcardContainer.appendChild(div);
+    });
 
+    // Display next button
+    nextButton.onclick = function() {
+      currentFlashcardIndex++;
+      displayFlashcard(currentFlashcardIndex);
+    };
+  }
+
+  // Function to handle file upload
+  function handleFile() {
+    const fileInput = document.getElementById('fileInput');
+    const file = fileInput.files[0];
+    const reader = new FileReader();
+    
+    reader.onload = function(event) {
+      const content = event.target.result;
+      const lines = content.trim().split('\n');
+      flashcards = lines.map(line => line.split(',').map(item => item.trim()));
+      currentFlashcardIndex = 0;
+      displayFlashcard(currentFlashcardIndex);
+    };
+    
+    reader.readAsText(file);
+  }
 </script>
 </body>
 </html>

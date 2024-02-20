@@ -15,3 +15,35 @@ body{
 html {
     scroll-behavior: smooth;
 }
+
+.flashcard {
+    display: none;
+    border: 1px solid black;
+    padding: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    background: #FFF;
+    width: 30vw;
+    height: auto;
+    align-self: center;
+  }
+
+  /* Center the GIF container */
+  #gif-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 300px; /* Adjust height as needed */
+  }
+
+  /* Optional: Add styles for the random GIF */
+  #random-gif {
+      max-width: 100%;
+      max-height: 100%;
+  }
+
+.center {
+    text-align: center;
+    align-content: center;
+    align-items: center;
+}
