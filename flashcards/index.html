@@ -3,56 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href='https://fonts.googleapis.com/css?family=Alfa Slab One' rel='stylesheet'>
+<link rel='stylesheet' href='./index.css'>
 <title>Flashcards Game</title>
-<style>
-  .flashcard {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin: 10px;
-    cursor: pointer;
-    width: 150px;
-    text-align: center;
-  }
-  .flashcard:hover {
-    background-color: #f0f0f0;
-  }
-  .flashcard{
-    background-color: #fff;
-  }
-  .container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  /* Center the GIF container */
-  #gif-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 300px; /* Adjust height as needed */
-  }
-
-  /* Optional: Add styles for the random GIF */
-  #random-gif {
-    max-width: 100%;
-    max-height: 100%;
-  }
-
-  body{
-    background-color: #BFD7EB;
-  }
-</style>
 </head>
 <body>
-<div id="flashcardContainer" class="container"></div>
-<div id="feedback"></div>
+  <script src="./index.js"></script>
+
+<br/><input type="file" id="fileInput" accept=".txt" onchange="handleFile()">
 <div id="gif-container">
   <img id="random-gif" src="" alt="Random Gif">
 </div>
+<div id="flashcardContainer" class="container"></div>
+<div id="feedback"></div>
 <button id="nextButton" style="display: none;">Next</button>
-<input type="file" id="fileInput" accept=".txt" onchange="handleFile()">
+
 
 <script>
+  //const { spawn } = require('child_process');
   let flashcards = [];
   let currentFlashcardIndex = 0;
 
@@ -76,6 +44,7 @@
     }
     return wrongAnswers;
   }
+
 
   function displayRandomGif(gifPath) {
     // Get a random number to append to the GIF URL to prevent caching
@@ -124,16 +93,18 @@
       div.textContent = answer;
       div.onclick = function() {
         if (answer === correctAnswer) {
-          feedback.textContent = "Yay!";
+          //feedback.textContent = "Yay!";
           displayRandomGif('./kibahappy/');
         } else {
           displayRandomGif('./kibasad/');
-          feedback.textContent = "Aww";
+          //feedback.textContent = "Aww";
         }
-        nextButton.style.display = "block";
+        nextButton.style.display = "flex";
       };
       flashcardContainer.appendChild(div);
     });
+
+    flashcardContainer.classList.add("center next");
 
     // Display next button
     nextButton.onclick = function() {
@@ -145,6 +116,18 @@
   // Function to handle file upload
   function handleFile() {
     const fileInput = document.getElementById('fileInput');
+    /*var argument = "<openai api key lol>";  
+    // Make an AJAX request to the PHP script
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "n.php?filePath=" + encodeURIComponent(filePath) + "&argument=" + encodeURIComponent(argument), true);
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState == 4 && xhr.status == 200) {
+        // Display the output returned by the PHP script
+        var output = xhr.responseText;
+        console.log("Output of Python script:", output);
+      }
+    };
+    xhr.send();*/
     const file = fileInput.files[0];
     const reader = new FileReader();
     
@@ -155,8 +138,26 @@
       currentFlashcardIndex = 0;
       displayFlashcard(currentFlashcardIndex);
     };
-    
+
     reader.readAsText(file);
+
+    
+
+    /*const { spawn } = require('child_process');
+    
+    const pythonProcess = spawn('python', ['gpt.py', file, "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"]);
+
+    pythonProcess.stdout.on('data', (data) => {
+
+
+      console.log(`stdout from Python: ${data}`);
+    });*/
+  }
+
+  function runPythonScript() {
+    // Get the file path and argument from the input fields
+    var filePath = document.getElementById("filePath").value;
+
   }
 </script>
 </body>
