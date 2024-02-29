@@ -15,7 +15,7 @@ The login menu component of our project offers a simplistic yet elegant solution
 
 **Languages Used:** HTML, CSS, JavaScript
 
-![Login Menu](readme-images\homepage.png)
+![Login Menu](https:\\github.com\xchar08\birthday-card\blob\main\readme-images\homepage.png)
 
 *Description:*
 
@@ -26,7 +26,7 @@ HTML is utilized to structure the login form, incorporating input fields for use
 *Example Usage:*  
 
 Login Menu with Input
-![Login Menu with Input](readme-images\homepage-input.png)
+![Login Menu with Input](https:\\github.com\xchar08\birthday-card\blob\main\readme-images\homepage-input.png)
 
 To utilize the login menu, simply navigate to the designated page and follow the prompts to log in. Once authenticated, users gain access to the full suite of features offered by our project.
 
@@ -36,7 +36,7 @@ The loader page component enriches the user experience by providing a visually e
 
 **Languages Used:** HTML, CSS, JavaScript
 
-![Loader Page](readme-images\loader.png)
+![Loader Page](https:\\github.com\xchar08\birthday-card\blob\main\readme-images\loader.png)
 
 *Description:*
 
@@ -53,7 +53,7 @@ The RPG game component immerses players in an interactive adventure reminiscent 
 
 **Languages Used:** HTML, CSS, JavaScript
 
-![RPG Game](readme-images\game-home.png)
+![RPG Game](https:\\github.com\xchar08\birthday-card\blob\main\readme-images\game-home.png)
 
 *Description:*
 
@@ -63,36 +63,36 @@ Movement controls allow players to navigate the game world seamlessly, with arro
 
 *Spritesheet Example:*
 Hero Spritesheet
-![Hero Spritesheet](game\images\characters\people\hero.png)
+![Hero Spritesheet](https:\\github.com\xchar08\birthday-card\blob\main\game\images\characters\people\hero.png)
 
 *Example Usage:*  
 
 Game Cutscreen
-![Game Cutscreen](readme-images\game-cutscreen1.png)
+![Game Cutscreen](https:\\github.com\xchar08\birthday-card\blob\main\readme-images\game-cutscreen1.png)
 
 Pokeroom Fadein
-![Pokeroom Fadein](readme-images\pokeroom-fadein.png)
+![Pokeroom Fadein](https:\\github.com\xchar08\birthday-card\blob\main\readme-images\pokeroom-fadein.png)
 
 Pokeroom Home
-![Pokeroom Home](readme-images\pokeroom-home.png)
+![Pokeroom Home](https:\\github.com\xchar08\birthday-card\blob\main\readme-images\pokeroom-home.png)
 
 Pokeroom Cutscreen
-![Pokeroom Cutscreen](readme-images\pokeroom-cutscreen-two.png)
+![Pokeroom Cutscreen](https:\\github.com\xchar08\birthday-card\blob\main\readme-images\pokeroom-cutscreen-two.png)
 
 Pokeroom Relocate
-![Pokeroom Relocate](readme-images\pokeroom-relocate-cutscreen.png)
+![Pokeroom Relocate](https:\\github.com\xchar08\birthday-card\blob\main\readme-images\pokeroom-relocate-cutscreen.png)
 
 Pokeroom Professor Oak
-![Pokeroom Professor Oak](readme-images\pokeroom-oak.png)
+![Pokeroom Professor Oak](https:\\github.com\xchar08\birthday-card\blob\main\readme-images\pokeroom-oak.png)
 
 Pokeroom Oak Cutscreen
-![Pokeroom Oak Cutscreen](readme-images\pokeroom-oak-cutscreen.png)
+![Pokeroom Oak Cutscreen](https:\\github.com\xchar08\birthday-card\blob\main\readme-images\pokeroom-oak-cutscreen.png)
 
 Pokeroom Alex
-![Pokeroom Alex](readme-images\pokeroom-alex.png)
+![Pokeroom Alex](https:\\github.com\xchar08\birthday-card\blob\main\readme-images\pokeroom-alex.png)
 
 Pokeroom Alex Cutscreen
-![Pokeroom Alex Cutscreen](readme-images\pokeroom-end.png)
+![Pokeroom Alex Cutscreen](https:\\github.com\xchar08\birthday-card\blob\main\readme-images\pokeroom-end.png)
 
 Controls:
 
@@ -111,7 +111,7 @@ The basketball/Pokemon catching game component offers a unique blend of sports a
 
 **Languages Used:** JavaScript, HTML, CSS
 
-![Basketball/Pokemon Catching Game](readme-images\catcher.png)
+![Basketball/Pokemon Catching Game](https:\\github.com\xchar08\birthday-card\blob\main\readme-images\catcher.png)
 
 *Description:*
 
@@ -122,10 +122,10 @@ JavaScript serves as the backbone of the game, handling the physics engine, play
 *Example Usage:*  
 
 Beginning of throw
-![Basketball/Pokemon Catching Game in Use](readme-images\catcher-throw.png)
+![Basketball/Pokemon Catching Game in Use](https:\\github.com\xchar08\birthday-card\blob\main\readme-images\catcher-throw.png)
 
 Mid-throw
-![Basketball/Pokemon Catching Game in Use 2](readme-images\catcher-throw2.png)
+![Basketball/Pokemon Catching Game in Use 2](https:\\github.com\xchar08\birthday-card\blob\main\readme-images\catcher-throw2.png)
 
 Controls:
 
@@ -141,7 +141,7 @@ The Quizlet/Kahoot clone component revolutionizes the way users engage with educ
 
 **Languages Used:** HTML, CSS, JavaScript, PHP, Python
 
-![Quizlet/Kahoot Clone](readme-images\flashcards-home.png)
+![Quizlet/Kahoot Clone](https:\\github.com\xchar08\birthday-card\blob\main\readme-images\flashcards-home.png)
 
 *Description:*
 
@@ -154,22 +154,22 @@ PHP and Python are employed to handle backend operations, such as retrieving que
 *Example Usage:*  
 
 Flashcard File Input
-![Flashcard File Input](readme-images\flashcards-file.png)
+![Flashcard File Input](https:\\github.com\xchar08\birthday-card\blob\main\readme-images\flashcards-file.png)
 
 Flashcard Generation
-![Flashcard Generation](readme-images\flashcards-gen.png)
+![Flashcard Generation](https:\\github.com\xchar08\birthday-card\blob\main\readme-images\flashcards-gen.png)
 
 Flashcard Right Answer 1
-![Flashcard Right Answer 1](readme-images\flashcards-correct1.png)
+![Flashcard Right Answer 1](https:\\github.com\xchar08\birthday-card\blob\main\readme-images\flashcards-correct1.png)
 
 Flashcard Right Answer 2 
-![Flashcard Right Answer 2 ](readme-images\flashcards-wrong2.png)
+![Flashcard Right Answer 2 ](https:\\github.com\xchar08\birthday-card\blob\main\readme-images\flashcards-wrong2.png)
 
 Flashcard Wrong Answer 1 
-![Flashcard Wrong Answer 1 ](readme-images\flashcards-wrong1.png)
+![Flashcard Wrong Answer 1 ](https:\\github.com\xchar08\birthday-card\blob\main\readme-images\flashcards-wrong1.png)
 
 Flashcard Wrong Answer 2
-![Flashcard Wrong Answer 2](readme-images\flashcards-wrong2.png)
+![Flashcard Wrong Answer 2](https:\\github.com\xchar08\birthday-card\blob\main\readme-images\flashcards-wrong2.png)
 
 Controls:
 
