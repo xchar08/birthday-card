@@ -14,7 +14,7 @@ The login menu component of our project offers a simplistic yet elegant solution
 
 **Languages Used:** HTML, CSS, JavaScript
 
-![Image](readme-images\homepage.png)
+![Image](readme-images/homepage.png)
 
 *Description:*
 
@@ -25,7 +25,7 @@ HTML is utilized to structure the login form, incorporating input fields for use
 *Example Usage:*  
 
 Login Menu with Input
-![Image](readme-images\homepage-input.png)
+![Image](readme-images/homepage-input.png)
 
 To utilize the login menu, simply navigate to the designated page and follow the prompts to log in. Once authenticated, users gain access to the full suite of features offered by our project.
 
@@ -35,7 +35,7 @@ The loader page component enriches the user experience by providing a visually e
 
 **Languages Used:** HTML, CSS, JavaScript
 
-![Image](readme-images\loader.png)
+![Image](readme-images/loader.png)
 
 *Description:*
 
@@ -52,7 +52,7 @@ The RPG game component immerses players in an interactive adventure reminiscent 
 
 **Languages Used:** HTML, CSS, JavaScript
 
-![Image](readme-images\game-home.png)
+![Image](readme-images/game-home.png)
 
 *Description:*
 
@@ -62,36 +62,36 @@ Movement controls allow players to navigate the game world seamlessly, with arro
 
 *Spritesheet Example:*
 Hero Spritesheet
-![Image](game\images\characters\people\hero.png)
+![Image](game/images/characters/people/hero.png)
 
 *Example Usage:*  
 
 Game Cutscreen
-![Image](readme-images\game-cutscreen1.png)
+![Image](readme-images/game-cutscreen1.png)
 
 Pokeroom Fadein
-![Image](readme-images\pokeroom-fadein.png)
+![Image](readme-images/pokeroom-fadein.png)
 
 Pokeroom Home
-![Image](readme-images\pokeroom-home.png)
+![Image](readme-images/pokeroom-home.png)
 
 Pokeroom Cutscreen
-![Image](readme-images\pokeroom-cutscreen-two.png)
+![Image](readme-images/pokeroom-cutscreen-two.png)
 
 Pokeroom Relocate
-![Image](readme-images\pokeroom-relocate-cutscreen.png)
+![Image](readme-images/pokeroom-relocate-cutscreen.png)
 
 Pokeroom Professor Oak
-![Image](readme-images\pokeroom-oak.png)
+![Image](readme-images/pokeroom-oak.png)
 
 Pokeroom Oak Cutscreen
-![Image](readme-images\pokeroom-oak-cutscreen.png)
+![Image](readme-images/pokeroom-oak-cutscreen.png)
 
 Pokeroom Alex
-![Image](readme-images\pokeroom-alex.png)
+![Image](readme-images/pokeroom-alex.png)
 
 Pokeroom Alex Cutscreen
-![Image](readme-images\pokeroom-end.png)
+![Image](readme-images/pokeroom-end.png)
 
 Controls:
 
@@ -110,7 +110,7 @@ The basketball/Pokemon catching game component offers a unique blend of sports a
 
 **Languages Used:** JavaScript, HTML, CSS
 
-![Image](readme-images\catcher.png)
+![Image](readme-images/catcher.png)
 
 *Description:*
 
@@ -121,10 +121,10 @@ JavaScript serves as the backbone of the game, handling the physics engine, play
 *Example Usage:*  
 
 Beginning of throw
-![Image](readme-images\catcher-throw.png)
+![Image](readme-images/catcher-throw.png)
 
 Mid-throw
-![Image](readme-images\catcher-throw2.png)
+![Image](readme-images/catcher-throw2.png)
 
 Controls:
 
@@ -140,7 +140,7 @@ The Quizlet/Kahoot clone component revolutionizes the way users engage with educ
 
 **Languages Used:** HTML, CSS, JavaScript, PHP, Python
 
-![Image](readme-images\flashcards-home.png)
+![Image](readme-images/flashcards-home.png)
 
 *Description:*
 
@@ -153,22 +153,22 @@ PHP and Python are employed to handle backend operations, such as retrieving que
 *Example Usage:*  
 
 Flashcard File Input
-![Image](readme-images\flashcards-file.png)
+![Image](readme-images/flashcards-file.png)
 
 Flashcard Generation
-![Image](readme-images\flashcards-gen.png)
+![Image](readme-images/flashcards-gen.png)
 
 Flashcard Right Answer 1
-![Image](readme-images\flashcards-correct1.png)
+![Image](readme-images/flashcards-correct1.png)
 
 Flashcard Right Answer 2 
-![Image](readme-images\flashcards-wrong2.png)
+![Image](readme-images/flashcards-wrong2.png)
 
 Flashcard Wrong Answer 1 
-![Image](readme-images\flashcards-wrong1.png)
+![Image](readme-images/flashcards-wrong1.png)
 
 Flashcard Wrong Answer 2
-![Image](readme-images\flashcards-wrong2.png)
+![Image](readme-images/flashcards-wrong2.png)
 
 Controls:
 
