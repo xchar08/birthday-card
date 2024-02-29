@@ -1,6 +1,5 @@
-# Project Name
-
-Welcome to [Project Name]! This project is a culmination of various parts, each offering a unique experience. Please find below an extensive overview of each component:
+# Birthday Card
+This project is a culmination of various parts, each offering a unique experience. It was coded as a Birthday gift and has over 108,000 lines of code, spread throughout various languages. Please find below an extensive overview of each component:
 
 ## Table of Contents
 1. [Login Menu](#login-menu)
